@@ -84,26 +84,23 @@
     <comp lib="0" loc="(1150,2850)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
+    <comp lib="0" loc="(1230,1320)" name="Ground">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1230,1650)" name="Ground">
+      <a name="facing" val="east"/>
+    </comp>
     <comp lib="0" loc="(1230,2240)" name="Power">
       <a name="facing" val="south"/>
     </comp>
     <comp lib="0" loc="(1230,2670)" name="Power">
       <a name="facing" val="east"/>
     </comp>
-    <comp lib="0" loc="(1270,1320)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(1270,1650)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(1230,290)" name="Ground">
+      <a name="facing" val="east"/>
     </comp>
     <comp lib="0" loc="(1270,2010)" name="Ground">
       <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(1270,290)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(1350,1140)" name="Power">
       <a name="facing" val="south"/>
@@ -244,7 +241,7 @@
     <comp lib="0" loc="(1700,2840)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="OUTPUT_EN"/>
+      <a name="label" val="OI"/>
     </comp>
     <comp lib="0" loc="(1710,1180)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -295,7 +292,7 @@
     </comp>
     <comp lib="0" loc="(340,690)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="ALU_OUT"/>
+      <a name="label" val="EO"/>
     </comp>
     <comp lib="0" loc="(360,1040)" name="Power"/>
     <comp lib="0" loc="(360,1670)" name="Pin">
@@ -370,15 +367,6 @@
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="1" loc="(1230,1320)" name="NOT Gate">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="1" loc="(1230,1650)" name="NOT Gate">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="1" loc="(1230,290)" name="NOT Gate">
-      <a name="facing" val="west"/>
-    </comp>
     <comp lib="1" loc="(1440,90)" name="NOT Gate">
       <a name="facing" val="north"/>
     </comp>
@@ -396,9 +384,6 @@
       <a name="facing" val="west"/>
     </comp>
     <comp lib="1" loc="(1640,2610)" name="NOT Gate">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="1" loc="(1670,780)" name="NOT Gate">
       <a name="facing" val="west"/>
     </comp>
     <comp lib="1" loc="(390,2030)" name="NOT Gate"/>
@@ -873,8 +858,6 @@
     <wire from="(1250,2690)" to="(1250,2800)"/>
     <wire from="(1250,2800)" to="(1290,2800)"/>
     <wire from="(1250,2810)" to="(1250,2870)"/>
-    <wire from="(1260,1320)" to="(1270,1320)"/>
-    <wire from="(1260,1650)" to="(1270,1650)"/>
     <wire from="(1260,2030)" to="(1270,2030)"/>
     <wire from="(1260,2050)" to="(1270,2050)"/>
     <wire from="(1260,2070)" to="(1270,2070)"/>
@@ -888,7 +871,6 @@
     <wire from="(1260,2750)" to="(1260,2780)"/>
     <wire from="(1260,2780)" to="(1290,2780)"/>
     <wire from="(1260,2790)" to="(1260,2880)"/>
-    <wire from="(1260,290)" to="(1270,290)"/>
     <wire from="(1270,2010)" to="(1270,2030)"/>
     <wire from="(1270,2030)" to="(1270,2050)"/>
     <wire from="(1270,2050)" to="(1270,2070)"/>
@@ -1355,13 +1337,12 @@
     <wire from="(1620,730)" to="(1620,770)"/>
     <wire from="(1620,730)" to="(1710,730)"/>
     <wire from="(1630,740)" to="(1630,780)"/>
-    <wire from="(1630,780)" to="(1670,780)"/>
+    <wire from="(1630,780)" to="(1710,780)"/>
     <wire from="(1640,490)" to="(1640,520)"/>
     <wire from="(1640,520)" to="(1860,520)"/>
     <wire from="(1660,490)" to="(1660,510)"/>
     <wire from="(1660,510)" to="(1870,510)"/>
     <wire from="(1670,2610)" to="(1690,2610)"/>
-    <wire from="(1700,780)" to="(1710,780)"/>
     <wire from="(1720,2230)" to="(1720,2320)"/>
     <wire from="(1730,2220)" to="(1730,2330)"/>
     <wire from="(1740,2210)" to="(1740,2340)"/>
