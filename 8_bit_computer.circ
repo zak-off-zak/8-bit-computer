@@ -231,22 +231,22 @@
     <comp lib="0" loc="(1580,220)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="A0"/>
+      <a name="label" val="A3"/>
     </comp>
     <comp lib="0" loc="(1580,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="A1"/>
+      <a name="label" val="A2"/>
     </comp>
     <comp lib="0" loc="(1580,260)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="A2"/>
+      <a name="label" val="A1"/>
     </comp>
     <comp lib="0" loc="(1580,280)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="A3"/>
+      <a name="label" val="A0"/>
     </comp>
     <comp lib="0" loc="(1580,3300)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -425,19 +425,19 @@
       <a name="facing" val="south"/>
     </comp>
     <comp lib="5" loc="(1410,1940)" name="LED">
-      <a name="color" val="#2835f0"/>
+      <a name="color" val="#18f023"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1410,1990)" name="LED">
-      <a name="color" val="#2526f0"/>
+      <a name="color" val="#0ef006"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1410,2040)" name="LED">
-      <a name="color" val="#1b1cf0"/>
+      <a name="color" val="#29f014"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1410,2090)" name="LED">
-      <a name="color" val="#1f18f0"/>
+      <a name="color" val="#1af031"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1410,2140)" name="LED">
@@ -540,59 +540,59 @@
       <a name="facing" val="south"/>
     </comp>
     <comp lib="5" loc="(1810,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1830,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1850,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1870,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1890,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1910,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1930,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1950,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1970,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(1990,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(2010,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(2030,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(2050,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(2070,3310)" name="LED">
-      <a name="color" val="#0a0ef0"/>
+      <a name="color" val="#16f00a"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="5" loc="(480,720)" name="LED">
