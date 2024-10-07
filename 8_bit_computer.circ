@@ -150,11 +150,6 @@
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp lib="0" loc="(1530,1180)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="RAM_EN"/>
-    </comp>
     <comp lib="0" loc="(1560,1250)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -234,12 +229,12 @@
     <comp lib="0" loc="(1630,1850)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="LOAD_INST"/>
+      <a name="label" val="II"/>
     </comp>
     <comp lib="0" loc="(1630,1880)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="ENABLE_INST"/>
+      <a name="label" val="IO"/>
     </comp>
     <comp lib="0" loc="(1690,2610)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -251,6 +246,11 @@
       <a name="facing" val="west"/>
       <a name="label" val="OUTPUT_EN"/>
     </comp>
+    <comp lib="0" loc="(1710,1180)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RO"/>
+    </comp>
     <comp lib="0" loc="(1710,730)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -259,7 +259,7 @@
     <comp lib="0" loc="(1710,780)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="WE"/>
+      <a name="label" val="RI"/>
     </comp>
     <comp lib="0" loc="(240,1370)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1264,7 +1264,7 @@
     <wire from="(1490,720)" to="(1490,790)"/>
     <wire from="(1490,790)" to="(1560,790)"/>
     <wire from="(1500,1040)" to="(1500,1140)"/>
-    <wire from="(1500,1180)" to="(1530,1180)"/>
+    <wire from="(1500,1180)" to="(1710,1180)"/>
     <wire from="(1500,1200)" to="(1500,1270)"/>
     <wire from="(1500,1270)" to="(1560,1270)"/>
     <wire from="(1500,1280)" to="(1500,1310)"/>
