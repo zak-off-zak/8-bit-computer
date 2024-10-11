@@ -342,18 +342,11 @@
     <comp lib="0" loc="(540,1300)" name="Ground"/>
     <comp lib="0" loc="(640,1040)" name="Power"/>
     <comp lib="0" loc="(660,1960)" name="Ground"/>
-    <comp lib="0" loc="(660,3210)" name="Splitter">
-      <a name="appear" val="right"/>
-      <a name="facing" val="west"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-      <a name="spacing" val="2"/>
-    </comp>
     <comp lib="0" loc="(660,3290)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="facing" val="west"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="4"/>
+      <a name="fanout" val="7"/>
+      <a name="incoming" val="7"/>
       <a name="spacing" val="2"/>
     </comp>
     <comp lib="0" loc="(660,460)" name="Ground"/>
@@ -380,9 +373,14 @@
       <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(840,2430)" name="Power"/>
-    <comp lib="0" loc="(840,3450)" name="Splitter">
-      <a name="fanout" val="15"/>
-      <a name="incoming" val="15"/>
+    <comp lib="0" loc="(840,3310)" name="Splitter">
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+      <a name="spacing" val="2"/>
+    </comp>
+    <comp lib="0" loc="(840,3470)" name="Splitter">
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
       <a name="spacing" val="2"/>
     </comp>
     <comp lib="0" loc="(850,3760)" name="Pin">
@@ -447,6 +445,23 @@
     <comp lib="1" loc="(420,690)" name="NOT Gate"/>
     <comp lib="1" loc="(850,3690)" name="NOT Gate">
       <a name="facing" val="north"/>
+    </comp>
+    <comp lib="4" loc="(250,3470)" name="ROM">
+      <a name="addrWidth" val="7"/>
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="contents">addr/data: 7 8
+11 1
+</a>
+      <a name="label" val="ROM_CU1"/>
+      <a name="labelvisible" val="true"/>
+    </comp>
+    <comp lib="4" loc="(530,3470)" name="ROM">
+      <a name="addrWidth" val="7"/>
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="contents">addr/data: 7 8
+0
+</a>
+      <a name="label" val="ROM_CU2"/>
     </comp>
     <comp lib="5" loc="(1010,20)" name="LED">
       <a name="facing" val="south"/>
@@ -799,9 +814,6 @@
     <comp loc="(470,1880)" name="SN74LS173A"/>
     <comp loc="(470,200)" name="SN74LS173A"/>
     <comp loc="(470,380)" name="SN74LS173A"/>
-    <comp loc="(820,3450)" name="Control_Unit">
-      <a name="appearance" val="logisim_evolution"/>
-    </comp>
     <wire from="(0,2150)" to="(0,2990)"/>
     <wire from="(0,2150)" to="(380,2150)"/>
     <wire from="(0,2990)" to="(1760,2990)"/>
@@ -1744,6 +1756,8 @@
     <wire from="(250,1880)" to="(400,1880)"/>
     <wire from="(250,3200)" to="(250,3230)"/>
     <wire from="(250,3200)" to="(350,3200)"/>
+    <wire from="(250,3370)" to="(250,3480)"/>
+    <wire from="(250,3370)" to="(530,3370)"/>
     <wire from="(250,380)" to="(400,380)"/>
     <wire from="(260,120)" to="(1010,120)"/>
     <wire from="(260,120)" to="(260,230)"/>
@@ -1899,6 +1913,7 @@
     <wire from="(490,1960)" to="(490,2030)"/>
     <wire from="(490,270)" to="(490,280)"/>
     <wire from="(490,280)" to="(490,450)"/>
+    <wire from="(490,3530)" to="(500,3530)"/>
     <wire from="(490,450)" to="(490,460)"/>
     <wire from="(490,460)" to="(490,530)"/>
     <wire from="(50,2940)" to="(1580,2940)"/>
@@ -1914,6 +1929,8 @@
     <wire from="(500,1330)" to="(690,1330)"/>
     <wire from="(500,210)" to="(500,540)"/>
     <wire from="(500,210)" to="(570,210)"/>
+    <wire from="(500,3380)" to="(500,3530)"/>
+    <wire from="(500,3380)" to="(670,3380)"/>
     <wire from="(500,540)" to="(530,540)"/>
     <wire from="(500,720)" to="(500,770)"/>
     <wire from="(500,770)" to="(500,970)"/>
@@ -1935,6 +1952,8 @@
     <wire from="(520,990)" to="(900,990)"/>
     <wire from="(530,1910)" to="(530,2010)"/>
     <wire from="(530,2010)" to="(570,2010)"/>
+    <wire from="(530,3370)" to="(530,3480)"/>
+    <wire from="(530,3370)" to="(660,3370)"/>
     <wire from="(530,410)" to="(530,510)"/>
     <wire from="(530,510)" to="(570,510)"/>
     <wire from="(530,540)" to="(530,580)"/>
@@ -2008,9 +2027,6 @@
     <wire from="(570,310)" to="(570,320)"/>
     <wire from="(570,310)" to="(620,310)"/>
     <wire from="(570,3280)" to="(640,3280)"/>
-    <wire from="(570,3420)" to="(570,3470)"/>
-    <wire from="(570,3420)" to="(670,3420)"/>
-    <wire from="(570,3470)" to="(590,3470)"/>
     <wire from="(570,360)" to="(570,370)"/>
     <wire from="(570,360)" to="(620,360)"/>
     <wire from="(570,410)" to="(570,420)"/>
@@ -2037,8 +2053,6 @@
     <wire from="(590,3010)" to="(1850,3010)"/>
     <wire from="(590,3010)" to="(590,3240)"/>
     <wire from="(590,3240)" to="(640,3240)"/>
-    <wire from="(590,3430)" to="(590,3450)"/>
-    <wire from="(590,3430)" to="(680,3430)"/>
     <wire from="(590,380)" to="(590,410)"/>
     <wire from="(590,380)" to="(630,380)"/>
     <wire from="(590,520)" to="(590,550)"/>
@@ -2141,19 +2155,18 @@
     <wire from="(660,240)" to="(660,260)"/>
     <wire from="(660,240)" to="(700,240)"/>
     <wire from="(660,260)" to="(670,260)"/>
-    <wire from="(660,3210)" to="(680,3210)"/>
-    <wire from="(660,3290)" to="(670,3290)"/>
+    <wire from="(660,3290)" to="(660,3370)"/>
     <wire from="(660,440)" to="(660,460)"/>
     <wire from="(660,440)" to="(670,440)"/>
     <wire from="(670,1300)" to="(670,1340)"/>
     <wire from="(670,1340)" to="(850,1340)"/>
-    <wire from="(670,3290)" to="(670,3420)"/>
+    <wire from="(670,3310)" to="(670,3380)"/>
+    <wire from="(670,3310)" to="(840,3310)"/>
     <wire from="(680,1010)" to="(680,1040)"/>
     <wire from="(680,1010)" to="(920,1010)"/>
     <wire from="(680,1040)" to="(680,1050)"/>
     <wire from="(680,1100)" to="(680,1130)"/>
     <wire from="(680,1130)" to="(930,1130)"/>
-    <wire from="(680,3210)" to="(680,3430)"/>
     <wire from="(690,1200)" to="(690,1240)"/>
     <wire from="(690,1200)" to="(750,1200)"/>
     <wire from="(690,1300)" to="(690,1320)"/>
@@ -2251,6 +2264,7 @@
     <wire from="(770,2340)" to="(770,2610)"/>
     <wire from="(770,2340)" to="(870,2340)"/>
     <wire from="(770,2610)" to="(810,2610)"/>
+    <wire from="(770,3530)" to="(840,3530)"/>
     <wire from="(780,1020)" to="(780,1040)"/>
     <wire from="(790,1150)" to="(790,1240)"/>
     <wire from="(790,2470)" to="(800,2470)"/>
@@ -2292,11 +2306,11 @@
     <wire from="(810,470)" to="(900,470)"/>
     <wire from="(810,950)" to="(810,1160)"/>
     <wire from="(820,1370)" to="(820,1670)"/>
-    <wire from="(820,3450)" to="(840,3450)"/>
     <wire from="(830,1360)" to="(830,1680)"/>
     <wire from="(830,2360)" to="(830,2380)"/>
     <wire from="(840,1350)" to="(840,1690)"/>
     <wire from="(840,2430)" to="(880,2430)"/>
+    <wire from="(840,3470)" to="(840,3530)"/>
     <wire from="(850,1340)" to="(850,1700)"/>
     <wire from="(850,2350)" to="(850,2380)"/>
     <wire from="(850,3640)" to="(850,3690)"/>
@@ -4064,6 +4078,48 @@ BEGIN
 --    CO  &lt;= "1";
 --    J   &lt;= "1";
 		
+END TypeArchitecture;
+</vhdl>
+  <vhdl name="Test">--------------------------------------------------------------------------------
+-- Project :
+-- File    :
+-- Autor   :
+-- Date    :
+--
+--------------------------------------------------------------------------------
+-- Description :
+--
+--------------------------------------------------------------------------------
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY Test IS
+  PORT (
+  ------------------------------------------------------------------------------
+  --Insert input ports below
+    clock : in std_logic; 
+    input      : IN  std_logic;
+  ------------------------------------------------------------------------------
+  --Insert output ports below
+    output        : OUT std_logic
+    );
+END Test;
+
+--------------------------------------------------------------------------------
+--Complete your VHDL description below
+--------------------------------------------------------------------------------
+
+ARCHITECTURE TypeArchitecture OF Test IS
+	BEGIN process (clock) 
+begin 
+    if rising_edge(clock) then 
+        output &lt;= input; 
+    end if; 
+end process;
+BEGIN
+
+
 END TypeArchitecture;
 </vhdl>
 </project>
