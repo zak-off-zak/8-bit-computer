@@ -45,23 +45,17 @@ int main(){
 
     control_unit_rom = fopen("control_unit", "w");
 
-    // Writing data to the first ROM_CU1
+    // Writing data to the ROM
     if(control_unit_rom == NULL) {
         printf("The file for the first ROM Control Unit was not found! Exiting... \n");
         exit(0);
     } else{
         fprintf(control_unit_rom, "v3.0 hex words addressed\n");
-        for(int address = 0; address < 16; address++){
-            // printf("%d, %d, %d\n", address, sizeof(data), sizeof(data[0]));
-            // char buf[128];
-            // sprintf(buf, "%02x: %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x",
-            //         address, data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7],
-            //         data[8], data[9], data[10], data[11], data[12], data[13], data[14], data[15]);
-            // fprintf(control_unit_rom, "%s\n", buf);
-            for(int step = 0; step < 8; step++){
-                printf("%d\n", (address << 3) | step);
-                fprintf(control_unit_rom, "%02x: %04x\n", (address << 3) | step, data[address]);
-            }
+        for(int address = 0; address < sizeof(data) / 2; address += 16)
+        {
+            char buf[128];
+            sprintf(buf, "%02x: %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x", address, data[(address) + 0], data[(address) + 1], data[(address) + 2], data[(address) + 3], data[(address) + 4], data[(address) + 5], data[(address) + 6], data[(address) + 7], data[(address) + 8], data[(address) + 9], data[(address) + 10], data[(address) + 11], data[(address) + 12], data[(address) + 13], data[(address) + 14], data[(address) + 15]);
+            fprintf(control_unit_rom, "%s\n", buf);
         }
         fclose(control_unit_rom);
     }
