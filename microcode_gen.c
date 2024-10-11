@@ -26,6 +26,9 @@
 #define FLAGS_Z1C0 2
 #define FLAGS_Z1C1 3
 
+#define JC 0b0111
+#define JZ 0b1000
+
 // Microcode instructions for the CPU
 uint16_t TEMPLATE[16][8] = {
     {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 0000 - NOP
@@ -35,8 +38,8 @@ uint16_t TEMPLATE[16][8] = {
     {MI|CO,  RO|II|CE,  IO|MI,  AO|RI,  0,            0, 0, 0},   // 0100 - STA
     {MI|CO,  RO|II|CE,  IO|AI,  0,      0,            0, 0, 0},   // 0101 - LDI
     {MI|CO,  RO|II|CE,  IO|J,   0,      0,            0, 0, 0},   // 0110 - JMP
-    {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 0111
-    {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 1000
+    {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 0111 - JC
+    {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 1000 - JZ
     {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 1001
     {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 1010
     {MI|CO,  RO|II|CE,  0,      0,      0,            0, 0, 0},   // 1011
@@ -53,10 +56,14 @@ void initUcode(){
     memcpy(ucode[FLAGS_Z0C0], TEMPLATE, sizeof(TEMPLATE));
     // Z = 0, C = 1
     memcpy(ucode[FLAGS_Z0C1], TEMPLATE, sizeof(TEMPLATE));
+    ucode[FLAGS_Z0C1][JC][2] = IO|J;
     // Z = 1, C = 0
     memcpy(ucode[FLAGS_Z1C0], TEMPLATE, sizeof(TEMPLATE));
+    ucode[FLAGS_Z1C0][JZ][2] = IO|J;
     // Z = 1, C = 1
     memcpy(ucode[FLAGS_Z1C1], TEMPLATE, sizeof(TEMPLATE));
+    ucode[FLAGS_Z1C1][JC][2] = IO|J;
+    ucode[FLAGS_Z1C1][JZ][2] = IO|J;
 }
 
 
