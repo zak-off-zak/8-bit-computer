@@ -89,13 +89,8 @@ int main(){
             int instructions = (address & 0b0001111000) >> 3;
             int step         = (address & 0b0000000111);
 
-            // if(step == 0b000){
-            //     fprintf(control_unit_rom, "%02x: ", mem_cnt);
-            // }
-            
             fprintf(control_unit_rom, "%04x ", ucode[flags][instructions][step]);
             if(step == 0b111){
-                // fprintf(control_unit_rom, "\n");
                 mem_step_flag++;
             }
 
@@ -107,13 +102,6 @@ int main(){
             }
 
         }
-
-        // for(int address = 0; address < sizeof(data) / 2; address += 16)
-        // {
-        //     char buf[128];
-        //     sprintf(buf, "%02x: %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x %04x", address, data[(address) + 0], data[(address) + 1], data[(address) + 2], data[(address) + 3], data[(address) + 4], data[(address) + 5], data[(address) + 6], data[(address) + 7], data[(address) + 8], data[(address) + 9], data[(address) + 10], data[(address) + 11], data[(address) + 12], data[(address) + 13], data[(address) + 14], data[(address) + 15]);
-        //     fprintf(control_unit_rom, "%s\n", buf);
-        // }
         fclose(control_unit_rom);
     }
 
