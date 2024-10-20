@@ -41,6 +41,23 @@ fn get_opcode_number(opcode: &Opcode) -> Result<&str, &'static str> {
     }
 }
 
+fn get_opcode_number_from_str(opcode: &str) -> Result<&str, &'static str> {
+    match opcode {
+        "nop" => Ok("0000"),
+        "lda" => Ok("0001"),
+        "add" => Ok("0010"),
+        "sub" => Ok("0011"),
+        "sta" => Ok("0100"),
+        "ldi" => Ok("0101"),
+        "jmp" => Ok("0110"),
+        "jc" => Ok("0111"),
+        "jz" => Ok("1000"),
+        "out" => Ok("1110"),
+        "hlt" => Ok("1111"),
+        _ => Err("Wrong opcode: {_}!"),
+    }
+}
+
 impl Config {
     pub fn build(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 2 {
@@ -55,9 +72,11 @@ pub fn compile(contents: &str) -> Result<(), Box<dyn Error>> {
     let mut cnt: u8 = 0;
     let mut instructiosn: Vec<Line> = Vec::new();
     for line in contents.lines() {
+        println!("!!!!");
         let count = cnt;
         let line_contents: Vec<&str> = line.split_whitespace().collect();
-        let opcode = get_opcode_number(line_contents[0]);
+        let opcode = get_opcode_number_from_str(line_contents[0])?;
+        println!("!{opcode}");
     }
     Ok(())
 }
@@ -68,6 +87,8 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
 
     println!("Contents of the file:\n{contents}");
+
+    let _ = compile(&contents);
 
     Ok(())
 }
