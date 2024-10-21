@@ -27,7 +27,7 @@ This computer has a total of 16 byte of RAM and has the following set of assembl
   - `LDI X` -> `0101` -> Load `X` into the `A rigister`
   - `JMP X` -> `0110` -> Jump to the instruction `X`
   - `JC X` -> `0111` -> Jump to the instruction `X` if the carry flag is set
-  - `JZ X` -> `100` -> Jump to the instruction `X` if the zero flag is set
+  - `JZ X` -> `1000` -> Jump to the instruction `X` if the zero flag is set
   - `OUT` -> `1110` -> Output the contents of the `A rigister`
   - `HLT` -> `1111` -> Halt (Not implemented yet)
 
