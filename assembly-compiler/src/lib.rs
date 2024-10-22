@@ -3,19 +3,19 @@ use std::error::Error;
 use std::{fs, u8};
 
 pub struct Config {
-    file_path: String,
+    input_file_path: String,
 }
 
 #[derive(Debug)]
-pub struct Line {
+pub struct Instruction {
     count: u8,
     opcode: String,
     argument: String,
 }
 
-impl Line {
-    fn new(count: u8, opcode: &str, argument: &str) -> Line {
-        Line {
+impl Instruction {
+    fn new(count: u8, opcode: &str, argument: &str) -> Instruction {
+        Instruction {
             count,
             opcode: opcode.to_owned(),
             argument: argument.to_owned(),
@@ -23,7 +23,7 @@ impl Line {
     }
 }
 
-impl fmt::Display for Line {
+impl fmt::Display for Instruction {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:04b}: {} {}", self.count, self.opcode, self.argument)
     }
@@ -51,20 +51,20 @@ impl Config {
         if args.len() < 2 {
             return Err("Not enough argumetns!");
         }
-        let file_path = args[1].clone();
-        Ok(Config { file_path })
+        let input_file_path = args[1].clone();
+        Ok(Config { input_file_path })
     }
 }
 
 pub fn compile(contents: &str) -> Result<(), Box<dyn Error>> {
     let mut cnt: u8 = 0;
-    let mut instructions: Vec<Line> = Vec::new();
+    let mut instructions: Vec<Instruction> = Vec::new();
     for line in contents.lines() {
         let count = cnt;
         let line_contents: Vec<&str> = line.split_whitespace().collect();
         let opcode = get_opcode_number_from_str(&line_contents[0].to_lowercase())?;
         let argument = line_contents[1];
-        instructions.push(Line::new(count, &opcode, argument));
+        instructions.push(Instruction::new(count, &opcode, argument));
         cnt += 1;
     }
     for instruction in instructions {
@@ -74,9 +74,9 @@ pub fn compile(contents: &str) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
-    println!("Compiling the assembly form {}", config.file_path);
+    println!("Compiling the assembly form {}", config.input_file_path);
 
-    let contents = fs::read_to_string(config.file_path)?;
+    let contents = fs::read_to_string(config.input_file_path)?;
 
     println!("Contents of the file:\n{contents}");
 
