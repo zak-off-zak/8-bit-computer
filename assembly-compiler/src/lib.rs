@@ -65,7 +65,7 @@ pub fn compile(contents: &str, output_file_path: &str) -> Result<(), Box<dyn Err
         cnt += 1;
     }
     for i in cnt..16 {
-        instructions.push(Instruction::new(i, "0000", "00000"));
+        instructions.push(Instruction::new(i, "0000", "0000"));
     }
     println!("Resulting instructions: ");
     let mut output = File::create(output_file_path)?;
