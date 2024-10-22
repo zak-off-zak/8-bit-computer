@@ -1,9 +1,14 @@
+use clap::Parser;
 use core::fmt;
 use std::error::Error;
 use std::{fs, u8};
 
+#[derive(Parser)]
 pub struct Config {
+    #[arg(short, long)]
     input_file_path: String,
+    #[arg(short, long, default_value_t = String::from("a.txt"))]
+    output_file_path: String,
 }
 
 #[derive(Debug)]
@@ -43,16 +48,6 @@ fn get_opcode_number_from_str(opcode: &str) -> Result<String, &'static str> {
         "out" => Ok(String::from("1110")),
         "hlt" => Ok(String::from("1111")),
         _ => Err("Wrong opcode: {_}!"),
-    }
-}
-
-impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 2 {
-            return Err("Not enough argumetns!");
-        }
-        let input_file_path = args[1].clone();
-        Ok(Config { input_file_path })
     }
 }
 
