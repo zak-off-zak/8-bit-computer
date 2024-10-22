@@ -1,3 +1,4 @@
+use core::fmt;
 use std::error::Error;
 use std::{fs, u8};
 
@@ -5,55 +6,42 @@ pub struct Config {
     file_path: String,
 }
 
+#[derive(Debug)]
 pub struct Line {
     count: u8,
     opcode: String,
     argument: String,
 }
 
-enum Opcode {
-    Nop,
-    Lda,
-    Add,
-    Sub,
-    Sta,
-    Ldi,
-    Jmp,
-    Jc,
-    Jz,
-    Out,
-    Hlt,
-}
-
-fn get_opcode_number(opcode: &Opcode) -> Result<&str, &'static str> {
-    match opcode {
-        Opcode::Nop => Ok("0000"),
-        Opcode::Lda => Ok("0001"),
-        Opcode::Add => Ok("0010"),
-        Opcode::Sub => Ok("0011"),
-        Opcode::Sta => Ok("0100"),
-        Opcode::Ldi => Ok("0101"),
-        Opcode::Jmp => Ok("0110"),
-        Opcode::Jc => Ok("0111"),
-        Opcode::Jz => Ok("1000"),
-        Opcode::Out => Ok("1110"),
-        Opcode::Hlt => Ok("1111"),
+impl Line {
+    fn new(count: u8, opcode: &str, argument: &str) -> Line {
+        Line {
+            count,
+            opcode: opcode.to_owned(),
+            argument: argument.to_owned(),
+        }
     }
 }
 
-fn get_opcode_number_from_str(opcode: &str) -> Result<&str, &'static str> {
+impl fmt::Display for Line {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:04b}: {} {}", self.count, self.opcode, self.argument)
+    }
+}
+
+fn get_opcode_number_from_str(opcode: &str) -> Result<String, &'static str> {
     match opcode {
-        "nop" => Ok("0000"),
-        "lda" => Ok("0001"),
-        "add" => Ok("0010"),
-        "sub" => Ok("0011"),
-        "sta" => Ok("0100"),
-        "ldi" => Ok("0101"),
-        "jmp" => Ok("0110"),
-        "jc" => Ok("0111"),
-        "jz" => Ok("1000"),
-        "out" => Ok("1110"),
-        "hlt" => Ok("1111"),
+        "nop" => Ok(String::from("0000")),
+        "lda" => Ok(String::from("0001")),
+        "add" => Ok(String::from("0010")),
+        "sub" => Ok(String::from("0011")),
+        "sta" => Ok(String::from("0100")),
+        "ldi" => Ok(String::from("0101")),
+        "jmp" => Ok(String::from("0110")),
+        "jc" => Ok(String::from("0111")),
+        "jz" => Ok(String::from("1000")),
+        "out" => Ok(String::from("1110")),
+        "hlt" => Ok(String::from("1111")),
         _ => Err("Wrong opcode: {_}!"),
     }
 }
@@ -70,13 +58,17 @@ impl Config {
 
 pub fn compile(contents: &str) -> Result<(), Box<dyn Error>> {
     let mut cnt: u8 = 0;
-    let mut instructiosn: Vec<Line> = Vec::new();
+    let mut instructions: Vec<Line> = Vec::new();
     for line in contents.lines() {
-        println!("!!!!");
         let count = cnt;
         let line_contents: Vec<&str> = line.split_whitespace().collect();
-        let opcode = get_opcode_number_from_str(line_contents[0])?;
-        println!("!{opcode}");
+        let opcode = get_opcode_number_from_str(&line_contents[0].to_lowercase())?;
+        let argument = line_contents[1];
+        instructions.push(Line::new(count, &opcode, argument));
+        cnt += 1;
+    }
+    for instruction in instructions {
+        println!("{instruction}");
     }
     Ok(())
 }
