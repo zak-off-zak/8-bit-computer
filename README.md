@@ -32,7 +32,22 @@ This computer has a total of 16 byte of RAM and has the following set of assembl
   - `HLT` -> `1111` -> Halt (Not implemented yet)
 
 ## Programming the 8-bit-computer
-In order to programm the computer:
+
+### Programming the computer using `assembly-compiler`:
+  1. Create a file containing your valid assembly instruction ( please think of the the limitaions of the 16-byte RAM)
+  2. Compile it using the `assembly-compiler`:
+     - Make sure you have `RUST` installed on your machine
+     - Navigate to the `assembly-compiler` folder
+     - Compile using the following command `cargo run -- -i <your_assembly_file> -o <output_file_path> -l`
+  3. Copy the contents of the output file into the RAM module:
+     - Double right click on the `PRAM`
+     - Select `Edit Contents...`.
+     - Select the fist address.
+     - Paste the contens of your compiled code  using `v.3.0 hex` , `words` and `addressed` as settings.
+     - Click `Ok`.
+  4. Start the clock (cmd + k)
+
+### Programming each instruction manually:
   1. Set the `MANUAL` pin to `1/High`
   2. Set the `RI` pin `1/High`
   3. Set the address using the pins `A0` - `A3`
