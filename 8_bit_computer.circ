@@ -92,21 +92,11 @@
     <comp lib="0" loc="(1240,1320)" name="Ground"/>
     <comp lib="0" loc="(1240,1650)" name="Ground"/>
     <comp lib="0" loc="(1240,290)" name="Ground"/>
-    <comp lib="0" loc="(1260,1210)" name="Ground">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(1260,1540)" name="Ground">
-      <a name="facing" val="north"/>
-    </comp>
     <comp lib="0" loc="(1270,2850)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
-    <comp lib="0" loc="(1350,1320)" name="Ground">
-      <a name="facing" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1350,1650)" name="Ground">
-      <a name="facing" val="east"/>
-    </comp>
+    <comp lib="0" loc="(1330,1320)" name="Ground"/>
+    <comp lib="0" loc="(1330,1650)" name="Ground"/>
     <comp lib="0" loc="(1350,2240)" name="Power">
       <a name="facing" val="south"/>
     </comp>
@@ -299,7 +289,7 @@
       <a name="facing" val="north"/>
       <a name="label" val="CE"/>
     </comp>
-    <comp lib="0" loc="(1790,730)" name="Pin">
+    <comp lib="0" loc="(1780,730)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="CLR_RAM"/>
@@ -1234,8 +1224,12 @@
     <wire from="(1250,2690)" to="(1270,2690)"/>
     <wire from="(1250,840)" to="(1250,860)"/>
     <wire from="(1250,860)" to="(2180,860)"/>
+    <wire from="(1260,1200)" to="(1260,1210)"/>
+    <wire from="(1260,1200)" to="(1340,1200)"/>
     <wire from="(1260,150)" to="(1260,180)"/>
     <wire from="(1260,150)" to="(2100,150)"/>
+    <wire from="(1260,1530)" to="(1260,1540)"/>
+    <wire from="(1260,1530)" to="(1340,1530)"/>
     <wire from="(1260,2610)" to="(1260,2670)"/>
     <wire from="(1260,2610)" to="(1760,2610)"/>
     <wire from="(1260,2670)" to="(1270,2670)"/>
@@ -1276,16 +1270,17 @@
     <wire from="(1320,270)" to="(1330,270)"/>
     <wire from="(1330,1290)" to="(1330,1300)"/>
     <wire from="(1330,1300)" to="(1330,1320)"/>
-    <wire from="(1330,1320)" to="(1350,1320)"/>
     <wire from="(1330,1620)" to="(1330,1630)"/>
     <wire from="(1330,1630)" to="(1330,1650)"/>
-    <wire from="(1330,1650)" to="(1350,1650)"/>
     <wire from="(1330,260)" to="(1330,270)"/>
     <wire from="(1330,270)" to="(1330,290)"/>
     <wire from="(1330,290)" to="(1350,290)"/>
     <wire from="(1330,3730)" to="(1330,4050)"/>
     <wire from="(1330,3730)" to="(2230,3730)"/>
     <wire from="(1330,4050)" to="(1440,4050)"/>
+    <wire from="(1340,1200)" to="(1340,1510)"/>
+    <wire from="(1340,1510)" to="(1340,1530)"/>
+    <wire from="(1340,1510)" to="(2150,1510)"/>
     <wire from="(1350,2230)" to="(1350,2240)"/>
     <wire from="(1350,2230)" to="(1390,2230)"/>
     <wire from="(1350,2690)" to="(1370,2690)"/>
@@ -1933,7 +1928,7 @@
     <wire from="(1740,490)" to="(1740,530)"/>
     <wire from="(1740,530)" to="(1970,530)"/>
     <wire from="(1740,730)" to="(1740,770)"/>
-    <wire from="(1740,730)" to="(1790,730)"/>
+    <wire from="(1740,730)" to="(1780,730)"/>
     <wire from="(1750,3610)" to="(1750,3780)"/>
     <wire from="(1750,3610)" to="(1770,3610)"/>
     <wire from="(1750,3840)" to="(1750,3920)"/>
@@ -2102,7 +2097,8 @@
     <wire from="(2140,1850)" to="(2140,2910)"/>
     <wire from="(2140,760)" to="(2140,1150)"/>
     <wire from="(2150,1090)" to="(2310,1090)"/>
-    <wire from="(2150,1150)" to="(2150,1820)"/>
+    <wire from="(2150,1150)" to="(2150,1510)"/>
+    <wire from="(2150,1510)" to="(2150,1820)"/>
     <wire from="(2150,1820)" to="(2170,1820)"/>
     <wire from="(2150,3480)" to="(2150,3620)"/>
     <wire from="(2150,890)" to="(2150,1090)"/>
@@ -4523,107 +4519,4 @@
     <wire from="(80,60)" to="(550,60)"/>
     <wire from="(90,660)" to="(340,660)"/>
   </circuit>
-  <vhdl name="Control_Unit">LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-
-ENTITY Control_Unit IS
-  PORT (
-  ------------------------------------------------------------------------------
-  -- Input ports
-    clock1 : IN  std_logic_vector(2 downto 0);
-    instruction : IN std_logic_vector(3 downto 0);
-  ------------------------------------------------------------------------------
-  -- Output ports
---    HLT : OUT std_logic;
---    MI  : OUT std_logic;
---    RI  : OUT std_logic;
---    RO  : OUT std_logic;
---    IO  : OUT std_logic;
---    II  : OUT std_logic;
---    AI  : OUT std_logic;
---    AO  : OUT std_logic;
---    EO  : OUT std_logic;
---    SU  : OUT std_logic;
---    BI  : OUT std_logic;
---    OI  : OUT std_logic;
---    CE  : OUT std_logic;
---    CO  : OUT std_logic;
---    J   : OUT std_logic
---    );
-	output : OUT std_logic_vector(14 downto 0)
-	);
-END Control_Unit;
-
-ARCHITECTURE TypeArchitecture OF Control_Unit IS
-
-BEGIN
---	if clock = "000" then
---		output &lt;= "010000000000010";
---	end if;
---	if clock = "001" then
---		output &lt;= "000101000000100";
---	end if;
---	else then
---		output &lt;= "000000000000000";
-		output &lt;= "111111111111111";
---    HLT &lt;= "1";
---    MI  &lt;= "1";
---    RI  &lt;= "1";
---    RO  &lt;= "1";
---    IO  &lt;= "1";
---    II  &lt;= "1";
---    AI  &lt;= "1";
---    AO  &lt;= "1";
---    EO  &lt;= "1";
---    SU  &lt;= "1";
---    BI  &lt;= "1";
---    OI  &lt;= "1";
---    CE  &lt;= "1";
---    CO  &lt;= "1";
---    J   &lt;= "1";
-		
-END TypeArchitecture;
-</vhdl>
-  <vhdl name="Test">--------------------------------------------------------------------------------
--- Project :
--- File    :
--- Autor   :
--- Date    :
---
---------------------------------------------------------------------------------
--- Description :
---
---------------------------------------------------------------------------------
-
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-
-ENTITY Test IS
-  PORT (
-  ------------------------------------------------------------------------------
-  --Insert input ports below
-    clock : in std_logic; 
-    input      : IN  std_logic;
-  ------------------------------------------------------------------------------
-  --Insert output ports below
-    output        : OUT std_logic
-    );
-END Test;
-
---------------------------------------------------------------------------------
---Complete your VHDL description below
---------------------------------------------------------------------------------
-
-ARCHITECTURE TypeArchitecture OF Test IS
-	BEGIN process (clock) 
-begin 
-    if rising_edge(clock) then 
-        output &lt;= input; 
-    end if; 
-end process;
-BEGIN
-
-
-END TypeArchitecture;
-</vhdl>
 </project>
