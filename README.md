@@ -1,19 +1,18 @@
 # 8-bit-computer
 
-A turing complete 8-bit computer build entirely in Logisim Evolution.
+A turing complete Von-Neumann 8-bit computer build entirely in Logisim Evolution.
 
 ## High overview of the architecture
-On the diagramm below the spetial positon of different modules inside the computer can be seen can be seen. 
-Thick lines represent the data flow and thin lines show the clock propagtions paths.
+On the diagramm below the spatial positon of different modules inside the computer can be seen. 
+Thick lines represent the data flow and thin lines show the clock propagation paths.
 
 ![structure](/diagrams/Structure_Diagram.svg)
 
 ## Usage
 In order to be able to experiment and test the 8-bit-compuer the [Logisim Evoltuion](https://github.com/logisim-evolution/logisim-evolution) is required.
-It is pretty simple: 
+It is simple: 
   1. Install [Logisim Evoltuion](https://github.com/logisim-evolution/logisim-evolution) on your system.
   2. Open the [8_bit_computer.circ](8_bit_computer.circ).
-  3. You are ready to go!
 
 The [standard Logisim](http://www.cburch.com/logisim/) might work, though this has never been tested.
 
@@ -40,21 +39,21 @@ This computer has a total of 16 byte of RAM and has the following set of assembl
      - Navigate to the `assembly-compiler` folder
      - Compile using the following command `cargo run -- -i <your_assembly_file> -o <output_file_path> -l`
   3. Copy the contents of the output file into the RAM module:
-     - Double right click on the `PRAM`
+     - Right click on the `PRAM`
      - Select `Edit Contents...`.
      - Select the fist address.
      - Paste the contens of your compiled code  using `v.3.0 hex` , `words` and `addressed` as settings.
      - Click `Ok`.
-  4. Start the clock (cmd + k)
+  4. Set `PRAM` pin to `1/High` in order to switch to programmable memory.
+  5. Start the clock (cmd + k)
 
 ### Programming each instruction manually:
   1. Set the `MANUAL` pin to `1/High`
   2. Set the `RI` pin `1/High`
   3. Set the address using the pins `A0` - `A3`
-  4. Set the assembly opcode + the `X` if needed using `D0` - `D7`
+  4. Set the assembly opcode (and the `X` if needed) using `D0` - `D7`
   5. Puls the clock `High` and `Low` (cmd + t)
   6. Repeat for all the other instruction
-
 After writing all the instructions and data to the RAM:
   1. Set the `MANUAL` pin back to `0/Low`
   2. Reset the computer using the `RESET` button
@@ -66,12 +65,11 @@ In most cases one does not have to reprogramm the ROM. In case if it has to be d
   1. Modify the [microcode_gen.c](microcode_gen.c) if needed.
   2. Compile and run the program.
   3. Open [8_bit_computer.circ](8_bit_computer.circ) in Logisim Evolution.
-  4. Double right click on the Control Unit ROM.
+  4. Right click on the Control Unit ROM.
   5. Select `Edit Contents...`.
   6. Select the fist address.
   7. Paste the contens of generated [control_unit](control_unit) using `v.3.0 hex` , `words` and `addressed` as settings.
   8. Click `Ok`.
-  9. You are ready to go!
 
 ## Acknowledgements
 This project was inspited by the works of [Ben Eater](https://github.com/beneater) and his tutorial series on [building an 8-bit breadboard computer!](https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU). Some of the designs were take directly from his videos and some were modified. Also some parts of [microcode_gen.c](microcode_gen.c) were taken from the [eeprom-programmer](https://github.com/beneater/eeprom-programmer?tab=readme-ov-file) of Ben Eater.
