@@ -71,6 +71,10 @@ In most cases one does not have to reprogramm the ROM. In case if it has to be d
   7. Paste the contens of generated [control_unit](control_unit) using `v.3.0 hex` , `words` and `addressed` as settings.
   8. Click `Ok`.
 
+## Picture of the Direct Implementation
+![Screenshot of the Direct Implementation from Logisim Evolution](https://github.com/user-attachments/assets/a3ccc37f-1156-417c-a840-9979b6c1b0f3)
+
+
 ## Acknowledgements
 This project was inspited by the works of [Ben Eater](https://github.com/beneater) and his tutorial series on [building an 8-bit breadboard computer!](https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU). Some of the designs were take directly from his videos and some were modified. Also some parts of [microcode_gen.c](microcode_gen.c) were taken from the [eeprom-programmer](https://github.com/beneater/eeprom-programmer?tab=readme-ov-file) of Ben Eater.
      
