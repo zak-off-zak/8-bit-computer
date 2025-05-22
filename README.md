@@ -72,7 +72,7 @@ In most cases one does not have to reprogramm the ROM. In case if it has to be d
   8. Click `Ok`.
 
 ## Picture of the Direct Implementation
-![8-bit-computer](https://github.com/user-attachments/assets/a3ccc37f-1156-417c-a840-9979b6c1b0f3)
+![Screenshot of the Direct Implementation from Logisim Evolution](https://github.com/user-attachments/assets/a3ccc37f-1156-417c-a840-9979b6c1b0f3)
 
 
 ## Acknowledgements
